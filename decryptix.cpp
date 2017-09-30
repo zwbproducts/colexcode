@@ -46,6 +46,28 @@
 222: cout << "Decryptix. Copyright 1999 Liberty ";
 223: cout << "Associates, Inc. Version 0.3\n\n" << endl;
 224: bool playAgain = true;
+     
+     std::string str = "why waste time learning, when ignorance is instantaneous?";
+    // str.find() can be used as well
+    std::cout << std::boolalpha << in_quote(str, "learning") << '\n'
+                                << in_quote(str, "lemming")  << '\n';
+ 
+    std::vector<char> vec(str.begin(), str.end());
+    std::cout << std::boolalpha << in_quote(vec, "learning") << '\n'
+                                << in_quote(vec, "lemming")  << '\n';
+ 
+    // The C++17 overload demo:
+    std::string in = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+                     " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+    std::string needle = "pisci";
+    auto it = std::search(in.begin(), in.end(),
+                   std::boyer_moore_searcher(
+                      needle.begin(), needle.end()));
+    if(it != in.end())
+        std::cout << "The string " << needle << " found at offset "
+                  << it - in.begin() << '\n';
+    else
+        std::cout << "The string " << needle << " not found\n";
 225:
 226: while ( playAgain )
 227: {
