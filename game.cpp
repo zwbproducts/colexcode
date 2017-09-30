@@ -100,6 +100,12 @@ howManyLetters )
 137: }
 138:
 139: int i;
+    struct Sum
+{
+    Sum(): sum{0} { }
+    void operator()(int n) { sum += n; }
+    int sum;
+};
 140: for (auto n: ns) std::cout << n << ", ";
     //std::cout << '\n';
     std::for_each_n(ns.begin(), maxPos, [](auto& n){ n *= 0; });
