@@ -2,6 +2,12 @@
 2: #define DEFINED
 3:
 4: #include <iostream>
+   #include <string>
+   #include <algorithm>
+   #include <iostream>
+   #include <vector>
+   #include <functional>
+ 
 5: using namespace std;
 6:
    std::vector<char> v = {a};
