@@ -26,6 +26,23 @@
     if (s >> n >> str)                             // text input
       std::cout << "read back from file: " << d << ' ' << n << ' ' << str << '\n';
   }
+      std::vector<int> nums{3, 4, 2, 8, 15, 267};
+ 
+    auto print = [](const int& n) { std::cout << " " << n; };
+ 
+    std::cout << "before:";
+    std::for_each(nums.begin(), nums.end(), print);
+    std::cout << '\n';
+ 
+    std::for_each(nums.begin(), nums.end(), [](int &n){ n++; });
+ 
+    // calls Sum::operator() for each number
+    Sum s = std::for_each(nums.begin(), nums.end(), Sum());
+ 
+    std::cout << "after: ";
+    std::for_each(nums.begin(), nums.end(), print);
+    std::cout << '\n';
+    std::cout << "sum: " << s.sum << '\n';
 222: cout << "Decryptix. Copyright 1999 Liberty ";
 223: cout << "Associates, Inc. Version 0.3\n\n" << endl;
 224: bool playAgain = true;
