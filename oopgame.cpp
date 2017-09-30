@@ -77,6 +77,11 @@ howManyLetters )
 73: i++;
 74: }
 75:
+    template <typename Container>
+bool in_quote(const Container& cont, const std::string& s)
+{
+    return std::search(cont.begin(), cont.end(), s.begin(), s.end()) != cont.end();
+}
 76: cout << "Exiting constructor. List: ";
 77: solution.Display();
 78:
