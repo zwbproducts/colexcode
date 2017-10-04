@@ -13,6 +13,7 @@
    #include <chrono>
    #include <numeric>
    #include <execution>
+   #include <cctype>
  
 5: using namespace std;
 6:
