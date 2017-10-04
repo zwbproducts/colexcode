@@ -161,7 +161,15 @@ howManyLetters )
 159: //solution[i] = '\0';
 160:
 161: }
-162:
+162: std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+ 
+    std::random_device rd;
+    std::mt19937 g(rd());
+ 
+    std::shuffle(v.begin(), v.end(), g);
+ 
+    std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << "\n";
 163: void Game::Play()
 164: {
      std::vector<char> guess = 80;
