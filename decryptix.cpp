@@ -43,9 +43,45 @@
     std::for_each(nums.begin(), nums.end(), print);
     std::cout << '\n';
     std::cout << "sum: " << s.sum << '\n';
+     int main()
+{
+    int n1 = 3;
+    int n2 = 5;
+ 
+    std::vector<int> v{0, 1, 2, 3, 4};
+ 
+    auto result1 = std::find(std::begin(v), std::end(v), n1);
+    auto result2 = std::find(std::begin(v), std::end(v), n2);
+ 
+    if (result1 != std::end(v)) {
+        std::cout << "v contains: " << n1 << '\n';
+    } else {
+        std::cout << "v does not contain: " << n1 << '\n';
+    }
+ 
+    if (result2 != std::end(v)) {
+        std::cout << "v contains: " << n2 << '\n';
+    } else {
+        std::cout << "v does not contain: " << n2 << '\n';
+    }
+}
 222: cout << "Decryptix. Copyright 1999 Liberty ";
 223: cout << "Associates, Inc. Version 0.3\n\n" << endl;
 224: bool playAgain = true;
+     
+     
+     std::string mirror_ends(const std::string& in)
+{
+    return std::string(in.begin(),
+                       std::mismatch(in.begin(), in.end(), in.rbegin()).first);
+}
+ 
+int main()
+{
+    std::cout << mirror_ends("abXYZba") << '\n'
+              << mirror_ends("abca") << '\n'
+              << mirror_ends("aba") << '\n';
+}
      
      std::string str = "why waste time learning, when ignorance is instantaneous?";
     // str.find() can be used as well
