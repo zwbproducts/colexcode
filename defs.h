@@ -10,6 +10,9 @@
    #include <iterator>
    #include <cstdlib>
    #include <random>
+   #include <chrono>
+   #include <numeric>
+   #include <execution>
  
 5: using namespace std;
 6:
