@@ -7,6 +7,7 @@
    #include <iostream>
    #include <vector>
    #include <functional>
+   #include <iterator>
  
 5: using namespace std;
 6:
