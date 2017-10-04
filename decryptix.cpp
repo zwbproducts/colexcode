@@ -65,6 +65,22 @@
         std::cout << "v does not contain: " << n2 << '\n';
     }
 }
+     template <class Container, class Size, class T>
+bool consecutive_values(const Container& c, Size count, const T& v)
+{
+  return std::search_n(std::begin(c),std::end(c),count,v) != std::end(c);
+}
+ 
+int main()
+{
+   const char sequence[] = "1001010100010101001010101";
+ 
+   std::cout << std::boolalpha;
+   std::cout << "Has 4 consecutive zeros: "
+             << consecutive_values(sequence,4,'0') << '\n';
+   std::cout << "Has 3 consecutive zeros: "
+             << consecutive_values(sequence,3,'0') << '\n';
+}
 222: cout << "Decryptix. Copyright 1999 Liberty ";
 223: cout << "Associates, Inc. Version 0.3\n\n" << endl;
 224: bool playAgain = true;
