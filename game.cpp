@@ -39,8 +39,21 @@
 81: ASSERT ( rPosition <= rCorrect)
 82:
 83: }
-84:
+84: std::string s("hello");
+    std::transform(s.begin(), s.end(), s.begin(),
+                   [](unsigned char c) -> unsigned char { return std::toupper(c); });
+ 
+    std::vector<size_t> ordinals;
+    std::transform(s.begin(), s.end(), std::back_inserter(ordinals),
+                   [](unsigned char c) -> size_t { return static_cast<size_t>(c); });
+ 
+    std::cout << s << ':';
+    for (size_t ord : ordinals) {
+       std::cout << ' ' << ord;
+    }
 85: Game::Game():
+
+   
 86: round(1),
 87: howManyPositions(0),
 88: howManyLetters(0),
