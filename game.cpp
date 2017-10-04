@@ -140,6 +140,17 @@ howManyLetters )
     }
     std::cout << "\n";
 }
+     int digits[] = {3, 1, 4, 1, 5};
+ 
+    for (auto i : digits) std::cout << i << ' ';
+    std::cout << ": is_sorted: " << std::boolalpha
+              << std::is_sorted(std::begin(digits), std::end(digits)) << '\n';
+ 
+    std::sort(std::begin(digits), std::end(digits));
+ 
+    for (auto i : digits) std::cout << i << ' ';
+    std::cout << ": is_sorted: "
+              << std::is_sorted(std::begin(digits), std::end(digits)) << '\n';
 143: srand( (unsigned)time( NULL ) );
 144: 
 145: //for ( i = 0; i < howManyPositions; )
@@ -238,3 +249,39 @@ howManyLetters )
 214: count ++;
 215: return count;
 216: }
+     std::vector<double> v(10'000'007, 0.5);
+ 
+    {
+        auto t1 = std::chrono::high_resolution_clock::now();
+        double result = std::accumulate(v.begin(), v.end(), 0.0);
+        auto t2 = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double, std::milli> ms = t2 - t1;
+        std::cout << std::fixed << "std::accumulate result " << result
+                  << " took " << ms.count() << " ms\n";
+    }
+ 
+    {
+        auto t1 = std::chrono::high_resolution_clock::now();
+        double result = std::reduce(std::execution::par, v.begin(), v.end());
+        auto t2 = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double, std::milli> ms = t2 - t1;
+        std::cout << "std::reduce result "
+                  << result << " took " << ms.count() << " ms\n";
+    }
+}
+std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+ 
+    int sum = std::accumulate(v.begin(), v.end(), 0);
+ 
+    int product = std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
+ 
+    std::string s = std::accumulate(std::next(v.begin()), v.end(),
+                                    std::to_string(v[0]), // start with first element
+                                    [](std::string a, int b) {
+                                        return a + '-' + std::to_string(b);
+                                    });
+ 
+    std::cout << "sum: " << sum << '\n'
+              << "product: " << product << '\n'
+              << "dash-separated string: " << s << '\n';
+}
